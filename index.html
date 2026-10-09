@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#fff5f7">
+    <title>Linkora — Make Links Lovely</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="brand">
+            <span class="brand-icon">↗</span>
+            linkora<span class="brand-dot">.</span>
+        </a>
+
+        <div class="nav-right">
+            <span class="nav-status"><span></span> Your link workspace</span>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <section class="hero">
+            <div class="hero-badge">✦ SIMPLE LINKS, BIG POSSIBILITIES</div>
+            <h1>Long links?<br><span>Make them lovely.</span></h1>
+            <p class="hero-description">
+                Turn long URLs into short, shareable links in seconds.
+                Simple, quick, and made for you.
+            </p>
+        </section>
+
+        <section class="shortener-card">
+            <div class="card-heading">
+                <div class="heading-icon">🔗</div>
+                <div>
+                    <h2>Shorten your link</h2>
+                    <p>Paste your long URL below to get started.</p>
+                </div>
+            </div>
+
+            <form id="shortenForm">
+                <label for="longUrl">YOUR LONG URL</label>
+
+                <div class="url-input-wrap">
+                    <span class="input-icon">↗</span>
+                    <input
+                        type="url"
+                        id="longUrl"
+                        placeholder="https://example.com/your-very-long-link"
+                        autocomplete="url"
+                        required
+                    >
+                </div>
+
+                <div class="form-options">
+                    <div class="custom-slug">
+                        <label for="customSlug">CUSTOM ALIAS <span>(OPTIONAL)</span></label>
+                        <div class="slug-input-wrap">
+                            <span>linkora.local/</span>
+                            <input
+                                type="text"
+                                id="customSlug"
+                                placeholder="my-link"
+                                maxlength="30"
+                                pattern="[a-zA-Z0-9_-]+"
+                                title="Use letters, numbers, hyphens, or underscores."
+                            >
+                        </div>
+                    </div>
+
+                    <button type="submit" class="shorten-btn">
+                        Shorten link <span>✦</span>
+                    </button>
+                </div>
+
+                <p class="form-error" id="formError" aria-live="polite"></p>
+            </form>
+
+            <div class="result-box" id="resultBox" hidden>
+                <div class="result-heading">
+                    <span class="success-icon">✓</span>
+                    <div>
+                        <h3>Your short link is ready!</h3>
+                        <p>This is a local demo link, not a live redirect.</p>
+                    </div>
+                </div>
+
+                <div class="result-link-row">
+                    <a href="#" id="shortUrl" target="_blank" rel="noopener noreferrer"></a>
+                    <button type="button" id="copyLatestBtn" class="copy-btn">
+                        Copy link
+                    </button>
+                </div>
+
+                <div class="original-url">
+                    <span>ORIGINAL</span>
+                    <p id="originalUrl"></p>
+                </div>
+
+                <p class="copy-feedback" id="copyFeedback" aria-live="polite"></p>
+            </div>
+        </section>
+
+        <section class="stats-row">
+            <div class="stat-card">
+                <span class="stat-icon">✂</span>
+                <div>
+                    <p>LINKS CREATED</p>
+                    <h3 id="totalLinks">0</h3>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-icon">♡</span>
+                <div>
+                    <p>IN YOUR HISTORY</p>
+                    <h3 id="savedLinks">0</h3>
+                </div>
+            </div>
+        </section>
+
+        <section class="history-section">
+            <div class="history-heading">
+                <div>
+                    <p class="section-eyebrow">YOUR COLLECTION</p>
+                    <h2>Recent links <span>♡</span></h2>
+                </div>
+
+                <button type="button" id="clearHistoryBtn" class="clear-btn">
+                    Clear history
+                </button>
+            </div>
+
+            <div class="search-wrap">
+                <span>⌕</span>
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Search your links..."
+                >
+            </div>
+
+            <div id="linkList" class="link-list"></div>
+
+            <div id="emptyState" class="empty-state">
+                <div class="empty-icon">🌷</div>
+                <h3>No links yet</h3>
+                <p>Your shortened links will bloom here.</p>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-logo">linkora<span>.</span></div>
+            <p>Little links, lovely possibilities. Made with <span>♥</span></p>
+            <p class="footer-note">Demo project · Links are stored in this browser</p>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
